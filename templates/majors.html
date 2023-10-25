@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yo'nalishlar</title>
+</head>
+<body>
+<h1>Universitetdagi barcha yo'nalishlar</h1>
+<br>
+<a href="/"><button>Ortga</button></a>
+<hr>
+<br>
+<form method="get">
+    <input type="text" placeholder="Type something" name="search">
+    <button>Qidirish</button>
+</form>
+
+
+<ol>
+    {% for m in majors %}
+    <li><h2>{{m.name}} -- {{m.active}}</h2></li>
+    <a href="/delete_major/{{m.id}}/"><button>O'chirish</button></a>
+    <a href="/update_major/{{m.id}}/"><button>Tahrirlash</button></a>
+    {% endfor %}
+</ol>
+<hr>
+<h3>Yo'nalish jadvaliga ma'lumot qo'shish</h3>
+<form method="post">
+    {% csrf_token %}
+    {{major_form.as_p}}
+    <button>Qo'shish</button>
+</form>
+<hr>
+</body>
+</html>

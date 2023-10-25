@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tahrirlash</title>
+</head>
+<body>
+<h2>Tanlangan Fan jadvalini o'zgartirish</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Nomi: </label>
+    <input type="text" id="name" name="name" value="{{subjects.name}}">
+    <br>
+    <label for="major">Yo'nalish: </label>
+    <select name="major" id="major">
+        {% for major in majors %}
+        <option value="{{major.id}}">{{major.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="main">Asosiy: </label>
+    <input type="text" id="main" name="main" value="{{subjects.main}}">
+    <br>
+    <button>Saqlash</button>
+</form>
+</body>
+</html>

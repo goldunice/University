@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar</title>
+</head>
+<body>
+<h1>Universitetdagi barcha fanlar</h1>
+<br>
+<a href="/">
+    <button>Ortga</button>
+</a>
+<hr>
+<br>
+<form method="get">
+    <input type="text" placeholder="Type something" name="search">
+    <button>Qidirish</button>
+</form>
+
+<ol>
+    {% for s in subjects %}
+    <h3>
+        <li>{{s.name}} -- {{s.major}} -- {{s.main}}</li>
+    </h3>
+    <a href="/delete_subject/{{s.id}}/">
+        <button>O'chirish</button>
+    </a>
+    <a href="/update_subject/{{s.id}}/">
+        <button>Tahrirlash</button>
+    </a>
+    {% endfor %}
+</ol>
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+    {{subject_form.as_p}}
+    <button>Qo'shish</button>
+</form>
+
+</body>
+</html>

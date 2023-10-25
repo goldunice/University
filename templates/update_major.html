@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tahrirlash</title>
+</head>
+<body>
+<h1>Tanlangan yo'nalishni tahrirlaymiz</h1>
+<br>
+<hr>
+<br>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Nomi: </label>
+    <input type="text" id="name" name="name" value="{{majors.name}}">
+    <br>
+    <label for="active">Aktiv: </label>
+    <input type="text" id="active" name="active" value="{{majors.active}}">
+    <br>
+    <button>Saqlash</button>
+</form>
+
+
+</body>
+</html>

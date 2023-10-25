@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustozlar</title>
+</head>
+<body>
+<h1>Universitetdagi barcha o'qituvchilar</h1>
+<br>
+<a href="/"><button>Ortga</button></a>
+<hr>
+<br>
+<form method="get">
+    <input type="text" placeholder="Biror narsa yoz" name="search">
+    <button>Qidirish</button>
+</form>
+
+<ol>
+    {% for t in teachers %}
+    <h3><li>{{t.name}} -- {{t.gender}} -- {{t.age}} -- {{t.level}} -- {{t.subject}}</li></h3>
+    <a href="/delete_teacher/{{t.id}}/"><button>O'chirish</button></a>
+    <a href="/update_teacher/{{t.id}}/"><button>Tahrirlash</button></a>
+    {% endfor %}
+</ol>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ teacher_form.as_p }}
+    <button>Qo'shish</button>
+</form>
+</body>
+</html>
